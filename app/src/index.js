@@ -4,11 +4,12 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import thunk from "redux-thunk";
+import { createStore, applyMiddleware } from "redux";
 import { characterReducer } from "./reducers/characterReducer";
 
-const store = createStore(characterReducer);
-console.log("))))))))))))", store.getState()); // state is an empty array and fetching data is false
+const store = createStore(characterReducer, applyMiddleware(thunk));
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
