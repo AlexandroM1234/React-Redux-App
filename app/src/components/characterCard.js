@@ -1,15 +1,27 @@
 import React from "react";
+import { connect } from "react-redux";
+import { getCharacter } from "../actions/actions";
 
-const CharacterCard = () => {
+const CharacterCard = props => {
+  const handleData = e => {
+    e.preventDefault();
+    props.getCharacter();
+  };
+
   return (
     <div>
-      <p>Name</p>
+      <button onClick={handleData}>Click here to get characters</button>
     </div>
   );
 };
 
 const mapStatetoProps = state => {
-  return {};
+  console.log("Tis state", state);
+
+  return {
+    // characters: state.characters,
+    // isFetchingData: state.isFetchingData
+  };
 };
 
-export default CharacterCard;
+export default connect(mapStatetoProps, { getCharacter })(CharacterCard);
