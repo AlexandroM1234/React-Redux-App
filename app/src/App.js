@@ -1,10 +1,12 @@
 import React from "react";
 import "./App.css";
-import CharacterCard from "./components/characterCard";
+import CharacterList from "./components/characterList";
+import CharacterForm from "./components/characterForm";
 function App() {
   return (
     <div className="App">
-      <CharacterCard />
+      <CharacterForm />
+      <CharacterList />
     </div>
   );
 }
